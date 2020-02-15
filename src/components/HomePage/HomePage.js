@@ -3,9 +3,6 @@ import React from 'react';
 import {UNSPLASH_ACCESS_KEY} from '../../constants';
 import './home.css';
 import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
     Link
 } from 'react-router-dom'
 const UNSPLASH_URL = `https://api.unsplash.com/collections/?client_id=${UNSPLASH_ACCESS_KEY}&page=1&per_page=10&order_by=latest`
@@ -56,9 +53,8 @@ class HomePage extends React.Component {
 
 
         return  (
-            <Router>
             <div className="unsplash__gallery">{this.createList()}</div>
-            </Router>);
+        )
     }
 }
 
