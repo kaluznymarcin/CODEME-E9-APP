@@ -5,15 +5,22 @@ import {
   Switch
 } from 'react-router-dom';
 import './App.css';
+import SectionsContainer from './SectionsContainer/Hero';
+import SectionView from './SectionView';
 
 //import Header from './Header';
-import SectionsContainer from './SectionsContainer/Hero';
 
 function App() {
   return (
     <Router>
-      <SectionsContainer>Lista sekcji</SectionsContainer>
-      
+      <Switch>
+        <Route path="/SectionsView/:id">
+          <SectionView />
+        </Route>
+        <Route path="/">
+          <SectionsContainer>Lista sekcji</SectionsContainer>
+        </Route>
+      </Switch>
     </Router>
   );
 }
