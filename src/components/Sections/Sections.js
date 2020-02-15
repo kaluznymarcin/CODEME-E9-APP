@@ -1,6 +1,8 @@
 import React from 'react';
 import fetchSections from '../../api/fetchSections';
 
+import './style.css';
+
 export default class extends React.Component {
   state = {
     data: null
@@ -15,7 +17,7 @@ export default class extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div className="sections">
       {JSON.stringify(this.state.data)}
     </div>
   }
