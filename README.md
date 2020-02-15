@@ -2,7 +2,7 @@
 
 ### Zadanie:
 
-Przy użyciu Collection API: https://unsplash.com/developers, napisz aplikację do przeglądania obrazów.
+Przy użyciu SingleImage API: https://unsplash.com/developers, napisz aplikację do przeglądania obrazów.
 
 Aplikacja ma posiadać następujące widoki:
 
