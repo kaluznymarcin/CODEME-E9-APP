@@ -34,12 +34,18 @@ class HomePage extends React.Component {
         {
             console.dir(this.state.apiData)
 
+
+
             const values = this.state.apiData;
             values.map(function(item){
 
-                const {title, id, cover_photo} = item;
+                const {title,user, id, cover_photo} = item;
                // console.log(cover_photo)
-                content.push(<div className='unsplash__item' key={id.toString()} data-id={id}><Link to={id}><img src={cover_photo.urls.small} /><span>{title}</span></Link></div>);
+
+                content.push(<div className='unsplash__item' key={id.toString()}>
+                    <Link to={`/collection/${user.id}`}><img src={cover_photo.urls.small} /><span>{title}</span>
+                    </Link>
+                </div>);
             })
         }
 
