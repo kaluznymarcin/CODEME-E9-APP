@@ -15,12 +15,12 @@ class Importer extends React.Component {
       .then(data => this.setState({
         imgs: data
       }));
+    }
 
 
       render() {
-        const content = this.state.imgs.map(
-           (value, index)  => value.urls.small;
-        )
+/*         const content = this.state.imgs.map(value => console.log(value.urls.small)
+        ) */
         
     
         
@@ -31,4 +31,4 @@ class Importer extends React.Component {
       }
     }
     
-    export default Importer;    
+    export default Importer; 
