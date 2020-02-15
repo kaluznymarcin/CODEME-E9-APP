@@ -23,7 +23,7 @@ class Importer extends React.Component {
           
         <div>
         <ul>
-          {this.state.imgs.map(value => <li><img key={value.id} src={value.cover_photo.urls.thumb}></img></li>)}
+          {this.state.imgs.map(value => <li key={value.id}><img src={value.cover_photo.urls.thumb}></img></li>)}
           </ul>
         </div>
         );
