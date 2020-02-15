@@ -13,6 +13,8 @@ function App() {
     <Router>
 
       <Switch>
+        <Route path="/photo/:id"><> Photo </></Route>
+        <Route path="/section/:id"><> Section </></Route>
         <Route path="/">
           <Sections />
         </Route>
