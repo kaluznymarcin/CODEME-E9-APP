@@ -1,4 +1,10 @@
-.section__title {
+.section__box {
+    padding: 20px;
+    margin: 5px;
+    border: solid 1px grey;
+}
+
+.section__box .section__title {
     color: royalblue;
     font-size: 16px;
 }
