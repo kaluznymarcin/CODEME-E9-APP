@@ -37,10 +37,10 @@ class HomePage extends React.Component {
             values.map(function(item){
 
                 const {title,user, id, cover_photo} = item;
-               // console.log(cover_photo)
+                console.log(item)
 
                 content.push(<div className='unsplash__item' key={id.toString()}>
-                    <Link to={`/collection/${user.id}`}><img src={cover_photo.urls.small} /><span>{title}</span>
+                    <Link to={`/collection/${id}`}><img src={cover_photo.urls.small} /><span>{title}</span>
                     </Link>
                 </div>);
             })

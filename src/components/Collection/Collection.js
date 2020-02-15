@@ -8,7 +8,7 @@ import './Collection.css';
 
 class Collection extends React.Component {
     state = {
-        collectionID :this.props.match.params.slug,
+        userName: this.props.match.params.slug,
         apiData: null,
     }
 
@@ -16,18 +16,20 @@ class Collection extends React.Component {
 
     componentDidMount() {
 
-        const UNSPLASH_URL = `https://api.unsplash.com/photos/?client_id=${UNSPLASH_ACCESS_KEY}&collection=${this.collectionID}&page=1&per_page=100&order_by=latest`
+        const UNSPLASH_URL = `https://api.unsplash.com/collections/${this.state.userName}/photos/?client_id=${UNSPLASH_ACCESS_KEY}&page=1&per_page=100&order_by=latest`
 
         fetch(UNSPLASH_URL)
             .then(res => res.json())
             .then(data => {
                 return this.setState({
                     apiData: data})});
-
+        console.log(UNSPLASH_URL);
     }
 
 
     createList = () => {
+
+        console.log(this.state.apiData);
 
         let content  = [];
 
