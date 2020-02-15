@@ -10,6 +10,7 @@ import {
 import HomePage from './HomePage';
 import Collection from "./Collection";
 import SingleImage from "./SingleImage";
+import "./App.css";
 
 function App() {
 

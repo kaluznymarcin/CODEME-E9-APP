@@ -38,10 +38,11 @@ class Collection extends React.Component {
                 values.map(function (item) {
 
                     const {id, urls} = item;
-
-                    content.push(<div className='unsplash__item' key={id.toString()}>
+                    const random = Math.floor(Math.random()*3 ) + 1;
+                    const classnames = `unsplash__item span-${random}`;
+                    content.push(<div className={classnames} key={id.toString()}>
                         <Link to={`/collection/image/${id}`}>
-                            <img src={urls.small} alt=""/>
+                            <img src={urls.regular} alt=""/>
                         </Link>
                     </div>);
                 })
