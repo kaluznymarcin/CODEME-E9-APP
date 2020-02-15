@@ -5,7 +5,7 @@ import { UNSPLASH_BASE_URL, UNSPLASH_ACCESS_KEY } from '../../../constants';
 
 const createList = (data) => ((Array.isArray(data) && data) || []).map(
     (item, index) => (
-        console.log(item)
+        <h2>{item.title}</h2>
     )
 );
 
@@ -23,7 +23,7 @@ class Sections extends React.Component {
     }
 
     render() {
-        return (<ul>{createList(this.state.apiData)}</ul>)
+        return (createList(this.state.apiData))
     }
 }
 
