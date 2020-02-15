@@ -19,14 +19,12 @@ class Importer extends React.Component {
 
 
       render() {
-/*         const content = this.state.imgs.map(value => console.log(value.urls.small)
-        ) */
-        
-    
-        
          return  ( 
-        <div>imgs{console.log(this.state.imgs)}</div>
-         
+        <div>
+        <ul>
+          {this.state.imgs.map(value => value.urls.thumb && 'object' === typeof value.urls.thumb ? <li>{value.urls.thumb}</li> : undefined)}
+        </ul>
+        </div>
         );
       }
     }
