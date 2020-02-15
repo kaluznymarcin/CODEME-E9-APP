@@ -1,5 +1,9 @@
 import React from 'react';
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch
+} from 'react-router-dom'
 // import Header from './Header';
 // import Nav from './Nav';
 // import HomePage from './HomePage';
@@ -12,8 +16,9 @@ function App() {
    return <HomePage />
    // return null;
   return (
-      <HomePage/>
-
+      <Router>
+        <HomePage/>
+      </Router>
   );
   //   <Router>
   //     <Header>Moja Aplikacja</Header>

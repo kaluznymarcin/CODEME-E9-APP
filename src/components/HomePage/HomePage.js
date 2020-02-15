@@ -1,6 +1,13 @@
 import React from 'react';
-import {UNSPLASH_ACCESS_KEY} from '../../constants';
 
+import {UNSPLASH_ACCESS_KEY} from '../../constants';
+import './home.css';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Link
+} from 'react-router-dom'
 const UNSPLASH_URL = `https://api.unsplash.com/collections/?client_id=${UNSPLASH_ACCESS_KEY}&page=1&per_page=10&order_by=latest`
 
 class HomePage extends React.Component {
@@ -30,8 +37,9 @@ class HomePage extends React.Component {
             const values = this.state.apiData;
             values.map(function(item){
 
-                const {title, id} = item;
-                content.push(<div key={id.toString()}><span>{title}</span>:<span>{id}</span></div>);
+                const {title, id, cover_photo} = item;
+               // console.log(cover_photo)
+                content.push(<div className='unsplash__item' key={id.toString()} data-id={id}><Link to={id}><img src={cover_photo.urls.small} /><span>{title}</span></Link></div>);
             })
         }
 
@@ -41,7 +49,10 @@ class HomePage extends React.Component {
     render() {
 
 
-        return  this.createList();
+        return  (
+            <Router>
+            <div className="unsplash__gallery">{this.createList()}</div>
+            </Router>);
     }
 }
 
