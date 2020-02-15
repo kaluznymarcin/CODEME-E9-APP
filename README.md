@@ -2,7 +2,7 @@
 
 ### Zadanie:
 
-Przy użyciu Unsplash API: https://unsplash.com/developers, napisz aplikację do przeglądania obrazów.
+Przy użyciu HomePage API: https://unsplash.com/developers, napisz aplikację do przeglądania obrazów.
 
 Aplikacja ma posiadać następujące widoki:
 

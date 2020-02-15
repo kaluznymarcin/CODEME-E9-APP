@@ -3,12 +3,18 @@ import React from 'react';
 // import Header from './Header';
 // import Nav from './Nav';
 // import HomePage from './HomePage';
-// import Currency from './Currency';
+import HomePage from './HomePage';
 
 function App() {
 
-    return null;
-  // return (
+    const UnsplashData = new HomePage();
+    console.log(UnsplashData.apiData);
+   return <HomePage />
+   // return null;
+  return (
+      <HomePage/>
+
+  );
   //   <Router>
   //     <Header>Moja Aplikacja</Header>
   //     <Nav />
