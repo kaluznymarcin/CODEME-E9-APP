@@ -1,32 +1,20 @@
 import React from 'react';
-import {
+/* import {
   BrowserRouter as Router,
   Route,
   Switch
-} from 'react-router-dom';
-import './App.css';
+} from 'react-router-dom'; */
+/* import './App.css'; */
 
-import Header from './Header';
+/* import Header from './Header';
 import Nav from './Nav';
 import HomePage from './HomePage';
-import Currency from './Currency';
+import Currency from './Currency'; */
+import Importer from './Importer'
 
 function App() {
   return (
-    <Router>
-      <Header>Moja Aplikacja</Header>
-      <Nav />
-
-      <Switch>
-        <Route path="/waluty">
-          <Currency />
-        </Route>
-        {/* <Route path="/" component={HomePage} /> */}
-        <Route path="/">
-          <HomePage />
-        </Route>
-      </Switch>
-    </Router>
+      <Importer />
   );
 }
 
