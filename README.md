@@ -46,3 +46,7 @@ Wszelkie dodatkowe pomysły są mile widziane.
     git branch {NAZWA_NOWEGO_BRANCHA}
     git checkout {NAZWA_NOWEGO_BRANCHA}
     ```
+
+* pobieranie wersji z galezi:
+
+    `git merge origin/GRUPA_{NR_GRUPY}`
