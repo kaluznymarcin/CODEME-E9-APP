@@ -1,11 +1,14 @@
 import React from 'react';
+import './Content.css';
 import { UNSPLASH_BASE_URL, UNSPLASH_ACCESS_KEY } from '../../../constants';
 
 // 
 
 const createList = (data) => ((Array.isArray(data) && data) || []).map(
     (item, index) => (
-        <h2>{item.title}</h2>
+        <div className="section__title">
+            <h2>{item.title}</h2>
+        </div>
     )
 );
 
