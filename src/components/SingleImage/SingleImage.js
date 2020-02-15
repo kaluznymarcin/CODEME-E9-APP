@@ -1,60 +1,47 @@
 import React from 'react';
 
 import {UNSPLASH_ACCESS_KEY} from '../../constants';
-//import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
 import './SingleImage.css';
 
 class SingleImage extends React.Component {
     state = {
-        userName: this.props.match.params.slug,
+        pictureId: this.props.match.params.slug,
         apiData: null,
-    }
+    };
 
 
 
     componentDidMount() {
 
-        const UNSPLASH_URL = `https://api.unsplash.com/collections/${this.state.userName}/photos/?client_id=${UNSPLASH_ACCESS_KEY}&page=1&per_page=100&order_by=latest`
+        const UNSPLASH_URL = `https://api.unsplash.com/photos/${this.state.pictureId}/?client_id=${UNSPLASH_ACCESS_KEY}`;
 
         fetch(UNSPLASH_URL)
             .then(res => res.json())
             .then(data => {
                 return this.setState({
                     apiData: data})});
-        console.log(UNSPLASH_URL);
     }
 
 
-    createList = () => {
-
-        console.log(this.state.apiData);
+    getPhoto = () => {
 
         let content  = [];
 
-        if(this.state.apiData)
-        {
+        if(this.state.apiData) {
 
-            const values = this.state.apiData;
-            values.map(function(item){
+            const photo = this.state.apiData;
+            const {id, alt_description, urls} = photo;
 
-                const { id, urls} = item;
-
-                content.push(<div className='unsplash__item' key={id.toString()}>
-                    <img src={urls.small} />
-                </div>);
-            })
+            content.push(<img src={urls.regular} alt={alt_description} data-id={id} className="unsplash__img"/>);
+            return content;
         }
-
-        return content;
-    }
+        else return null;
+    };
 
     render() {
-
-        return  (
-            <div className="unsplash__gallery">{this.createList()}</div>
-        )
+        return (<div className="unsplash__single">{ this.getPhoto() }</div>);
     }
 }
 

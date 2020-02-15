@@ -9,19 +9,17 @@ import {
 // import Collection from './Collection';
 import HomePage from './HomePage';
 import Collection from "./Collection";
+import SingleImage from "./SingleImage";
 
 function App() {
 
   return (
       <Router>
       <Switch>
-          <Route path="/collection/:slug" component={Collection}>
-              <Collection />
-          </Route>
-          <Route path="/">
-              <HomePage />
-          </Route>
 
+          <Route path="/collection/image/:slug" exact component={SingleImage} />
+          <Route path="/collection/:slug" exact component={Collection} />
+          <Route path="/" component={HomePage} />
 
       </Switch>
       </Router>
