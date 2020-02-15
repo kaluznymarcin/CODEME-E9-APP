@@ -1,4 +1,5 @@
 import React from 'react';
+import './Hero.css';
 import Content from './Content';
 
 export default (props) => (

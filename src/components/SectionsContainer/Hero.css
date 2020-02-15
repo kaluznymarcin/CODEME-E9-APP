@@ -1,0 +1,10 @@
+.hero {
+    width: 60%;
+    min-width: 500px;
+    margin: 25px auto;
+    padding: 20px;    
+}
+
+.hero .listsTitle {
+    font-size: 22px;
+}
