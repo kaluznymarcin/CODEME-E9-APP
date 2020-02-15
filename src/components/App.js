@@ -10,7 +10,14 @@ import Sections from './Sections'
 
 function App() {
   return (
-    <Sections />
+    <Router>
+
+      <Switch>
+        <Route path="/">
+          <Sections />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
