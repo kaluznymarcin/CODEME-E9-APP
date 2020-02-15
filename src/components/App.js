@@ -9,6 +9,7 @@ import {
 // import Collection from './Collection';
 import HomePage from './HomePage';
 import Collection from "./Collection";
+import "./App.css";
 
 function App() {
 
