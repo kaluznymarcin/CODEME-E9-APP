@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import * as unsplashConsts from '../constants'
+import { Link } from 'react-router-dom'
 
 class Home extends Component {
 
@@ -11,7 +12,7 @@ class Home extends Component {
   componentDidMount(){
     axios.get(unsplashConsts.UNSPLASH_COLLECTIONS_URL)
       .then(res => {
-        console.log(res);
+        console.log(res)
         this.setState({
           collImages: res.data // could be: res.data.slice(0, 10)
         })
@@ -34,7 +35,7 @@ class Home extends Component {
                   <p>{collImage.description ? collImage.description : 'Descritpion is missing ...'}</p>
                 </div>
                 <div className="card-action">
-                  <a href="#">This is a link</a>
+                  <Link to={'/' + collImage.id}>Open this collection ...</Link> {/* collImage.title.toLowerCase() + '_' + */}
                 </div>
               </div>
             </div>
