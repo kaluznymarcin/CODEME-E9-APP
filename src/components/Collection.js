@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import * as unsplashConsts from '../constants'
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
 import { Link } from 'react-router-dom'
+import M from "materialize-css";
 
 class Collection extends Component {
 
@@ -10,14 +14,12 @@ class Collection extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props)
         let id = this.props.match.params.collection_id
         axios.get(unsplashConsts.SINGLE_COLLECTION + id + unsplashConsts.COLLECTION_ORDER_ACCESS)
             .then(res => {
             this.setState({
                 collImages: res.data // could be: res.data.slice(0, 10)
             })
-            console.log(res)
         });
     }
 
@@ -30,14 +32,14 @@ class Collection extends Component {
                     <div className="col s12 m7">
                         <div className="card large">
                             <div className="card-image">
-                                <img className="responsive-img" src={collImage.urls.thumb} />
+                                <img alt="collImage.title" className="responsive-img" src={collImage.urls.thumb} />
                                 <span className="card-title">{collImage.title}</span>
                             </div>
                             <div className="card-content">
                                 <p>{collImage.description ? collImage.description : 'Descritpion is missing ...'}</p>
                             </div>
                             <div className="card-action">
-                                <Link to={'/' + collImage.id}>Open this collection ...</Link> {/* collImage.title.toLowerCase() + '_' + */}
+                                Open this image ...
                             </div>
                         </div>
                     </div>

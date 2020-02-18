@@ -12,7 +12,6 @@ class Home extends Component {
   componentDidMount(){
     axios.get(unsplashConsts.UNSPLASH_COLLECTIONS_URL)
       .then(res => {
-        console.log(res)
         this.setState({
           collImages: res.data // could be: res.data.slice(0, 10)
         })
@@ -28,7 +27,7 @@ class Home extends Component {
             <div className="col s12 m7">
               <div className="card medium">
                 <div className="card-image">
-                  <img className="responsive-img" src={collImage.cover_photo.urls.thumb} />
+                  <img alt="collImage.title" className="responsive-img" src={collImage.cover_photo.urls.thumb} />
                   <span className="card-title">{collImage.title}</span>
                 </div>
                 <div className="card-content">
