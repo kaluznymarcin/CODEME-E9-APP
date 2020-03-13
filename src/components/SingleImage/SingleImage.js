@@ -32,16 +32,34 @@ class SingleImage extends React.Component {
         if(this.state.apiData) {
 
             const photo = this.state.apiData;
-            const {id, alt_description, urls} = photo;
+            const {id, alt_description, urls, downloads, likes} = photo;
+            
 
             content.push(<img src={urls.regular} alt={alt_description} data-id={id} className="unsplash__img"/>);
-            return content;
+            
+
+            return content 
         }
         else return null;
     };
 
+    likes_downloads = () => {
+        let content = []
+
+        if(this.state.apiData){
+            
+            const like_download = this.state.apiData
+            const {likes, downloads} = like_download
+            
+            content.push(<span className="unsplash__Likes_Downloads">Likes: {likes} Downloads: {downloads}</span>)
+
+            return content
+        }
+
+    }
+
     render() {
-        return (<div className="unsplash__single">{ this.getPhoto() }</div>);
+    return (<div className="unsplash__single">{ this.getPhoto() }{ this.likes_downloads() }</div>);
     }
 }
 
