@@ -13,7 +13,7 @@ const Image = props => {
     console.log('Test Image Component')
     return (
         <div>
-            {Test}
+            Test
         </div>
     )
 }
