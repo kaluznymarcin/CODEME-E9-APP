@@ -9,7 +9,7 @@ import M from "materialize-css";
 
 class Image extends Component {
     state = {
-        collImage: ''
+        collImage: {}
     }
 
   componentDidMount() {
@@ -23,10 +23,11 @@ class Image extends Component {
 
   render() {
     const { collImage } = this.state
-    console.log(collImage.urls);
+    const imageMarkup = collImage.urls && <img alt="collImage.description" className="responsive-img" src={collImage.urls.full} />;
     return (
-        // collImage.urls.regular
-        <div>Test</div>
+        <div>
+            {imageMarkup}
+        </div>
     )
   }
 }
