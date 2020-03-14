@@ -9,8 +9,7 @@ const linkKey = `&client_id=${UNSPLASH_ACCESS_KEY}`;
 const createList = (data) => ((Array.isArray(data) && data) || []).map(
     (item, index) => (
         
-        //console.log(item.links.photos + linkKey),
-        <Link key={item.id} to="/SectionsView/:id">
+        <Link key={item.id} to={'/SectionsView/' + item.title}>
             <div className="section__box">
                 <h2 className="section__title">{item.title}</h2>
                 <img src={item.cover_photo.urls.thumb} alt="" />
