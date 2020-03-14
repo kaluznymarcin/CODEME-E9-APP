@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './Content.css';
 import { UNSPLASH_BASE_URL, UNSPLASH_ACCESS_KEY } from '../../../constants';
 
@@ -8,7 +8,7 @@ const linkKey = `&client_id=${UNSPLASH_ACCESS_KEY}`;
 
 const createList = (data) => ((Array.isArray(data) && data) || []).map(
     (item, index) => (
-
+        
         //console.log(item.links.photos + linkKey),
         <Link key={item.id} to="/SectionsView/:id">
             <div className="section__box">
@@ -33,8 +33,10 @@ class Sections extends React.Component {
     }
 
     render() {
+        
         return (createList(this.state.apiData))
     }
 }
 
-export default Sections;
+export default withRouter(Sections);
+//pwoinno to być w render ale nie działa: this.props.match.params.id
