@@ -4,9 +4,8 @@ import {
   import axios from 'axios';
   
   // Get one image
-  export const getImage = image_id => dispatch => {
+  export const getImage = (image_id, dispatch) => {
     console.log('dataActions: ' + image_id)
-    dispatch({ type: SET_COLL_IMAGE });
     axios
       .get(`photos/${image_id}`)
       .then(res => {
