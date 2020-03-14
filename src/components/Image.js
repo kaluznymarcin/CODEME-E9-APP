@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import * as unsplashConsts from "../constants";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
@@ -17,12 +16,12 @@ class Image extends Component {
   componentDidMount() {
     const { image_id } = this.props.match.params;
     console.log('Image.js: ' + image_id)
-    getImage(image_id)
-    axios.get(`photos/${image_id}`).then(res => {
-      this.setState({
-        collImage: res.data
-      });
-    });
+    this.props.getImage(image_id)
+    // axios.get(`photos/${image_id}`).then(res => {
+    //   this.setState({
+    //     collImage: res.data
+    //   });
+    // });
   }
 
   render() {
@@ -48,4 +47,4 @@ const mapStateToProps = state => ({
     user: state.user
   });
 
-export default connect(mapStateToProps)(Image);
+export default connect(mapStateToProps, { getImage })(Image);
