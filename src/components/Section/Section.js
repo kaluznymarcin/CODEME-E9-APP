@@ -1,6 +1,6 @@
 import React from 'react';
-import fetchSections from '../../api/fetchSections';
-import { Link } from 'react-router-dom';
+import fetchSection from '../../api/fetchSection';
+import { Link, withRouter } from 'react-router-dom';
 
 import './style.css';
 
@@ -14,13 +14,15 @@ const list_creator = data => ((Array.isArray(data) && data) || []).map(
   )
 );
 
-export default class extends React.Component {
+class Section extends React.Component {
   state = {
     data: null
   }
 
   componentDidMount() {
-    fetchSections(data => { console.dir(data[0]); return this.setState({ data }); });
+    fetchSection(data => { console.dir(data[0]); return this.setState({ data }); }, {
+      id: this.
+    });
   }
 
   render() {
@@ -29,3 +31,5 @@ export default class extends React.Component {
     </div>
   }
 }
+
+export default withRouter(Section);
