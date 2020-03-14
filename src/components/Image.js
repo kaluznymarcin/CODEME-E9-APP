@@ -7,6 +7,7 @@ import "materialize-css/dist/js/materialize.min.js";
 import { Link } from "react-router-dom";
 import M from "materialize-css";
 import { connect } from 'react-redux';
+import { getImage } from '../redux/actions/dataActions'
 
 class Image extends Component {
   state = {
@@ -15,6 +16,8 @@ class Image extends Component {
 
   componentDidMount() {
     const { image_id } = this.props.match.params;
+    console.log('Image.js: ' + image_id)
+    getImage(image_id)
     axios.get(`photos/${image_id}`).then(res => {
       this.setState({
         collImage: res.data
