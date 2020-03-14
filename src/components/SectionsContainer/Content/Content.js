@@ -7,12 +7,12 @@ import { UNSPLASH_BASE_URL, UNSPLASH_ACCESS_KEY } from '../../../constants';
 const linkKey = `&client_id=${UNSPLASH_ACCESS_KEY}`;
 
 const createList = (data) => ((Array.isArray(data) && data) || []).map(
-    (item, index) => (
+    ({id, title, total_photos, cover_photo: {urls: {thumb: image}}}, index) => (
         
-        <Link key={item.id} to={'/SectionsView/' + item.title}>
+        <Link key={id} to={`/SectionsView/${id}`}>
             <div className="section__box">
-                <h2 className="section__title">{item.title}</h2>
-                <img src={item.cover_photo.urls.thumb} alt="" />
+                <h2 className="section__title">{title}</h2>
+                <img src={image} alt="" />
             </div>
         </Link >
     )
