@@ -8,10 +8,11 @@ import { Link } from 'react-router-dom'
 import M from "materialize-css";
 
 const Image = props => {
-    console.log(props.match.params.image_id)
+    const {image_id} = props.match.params
+    console.log(image_id)
     return (
         <div>
-            Test
+            {image_id}
         </div>
     )
 }
