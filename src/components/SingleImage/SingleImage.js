@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {UNSPLASH_ACCESS_KEY} from '../../constants';
-import { withRouter } from "react-router-dom";
+import { withRouter , Link} from "react-router-dom";
 
 import './SingleImage.scss';
 
@@ -32,9 +32,11 @@ class SingleImage extends React.Component {
         if(this.state.apiData) {
 
             const photo = this.state.apiData;
-            const {id, alt_description, urls} = photo;
+            console.log(photo);
+            const {id, alt_description, urls, likes,links} = photo;
 
-            content.push(<img src={urls.regular} alt={alt_description} data-id={id} className="unsplash__img"/>);
+            content.push(<div className="unsplash__single-wrapper"><img src={urls.regular} alt={alt_description} key={id} data-id={id} className="unsplash__img"/>
+            <span className='unsplash__likes' >{likes} likes</span><Link className='unsplash__link' to={links.self}>See on Unsplash</Link></div>);
             return content;
         }
         else return null;
