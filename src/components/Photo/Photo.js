@@ -2,14 +2,15 @@ import React from 'react';
 import fetchPhoto from '../../api/fetchPhoto';
 import { withRouter } from 'react-router-dom';
 
-import { Card, CardMedia, withStyles } from '@material-ui/core';
+import { Card, CardMedia, CardContent, withStyles } from '@material-ui/core';
 
 const styles = (theme => ({
   root: {
     display: 'flex',
+    flexDirection: 'column',
     maxWidth: '98%',
     width: '100%',
-    margin: 'auto'
+    margin: 'auto',
   },
   image: {
     width: '100%'
@@ -34,11 +35,14 @@ class Photo extends React.Component {
     return (
       (image && <Card className={classes.root}>
         <CardMedia
+          component="img"
           className={classes.media}
           title={alt_description}
-        >
-          <img src={image} alt={alt_description} className={classes.image} />
-        </CardMedia>
+          image={image}
+        />
+        <CardContent>
+          Likes: {likes} | Views: { views } | Downloads: {downloads}
+        </CardContent>
       </Card>) || null
     )
   }
