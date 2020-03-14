@@ -6,6 +6,11 @@ import About from './components/About'
 import Collection from './components/Collection'
 import Image from './components/Image'
 import 'materialize-css/dist/css/materialize.min.css';
+import * as unsplashConsts from './constants'
+import axios from 'axios';
+
+axios.defaults.baseURL = unsplashConsts.UNSPLASH_BASE_URL
+axios.defaults.headers.common['Authorization'] = unsplashConsts.UNSPLASH_AUTHORIZATION;
 
 class App extends Component {
 
