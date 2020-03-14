@@ -6,23 +6,27 @@
   height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   overflow: hidden;
 
 
   &-figure
   {
-    display: inline-block;
+    display: flex;
     position: relative;
-    height: 100%;
+    height: auto;
     width: auto;
+    max-width: 100%;
     flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
 
     img
     {
       position: relative;
-      height: 100%;
+      height: auto;
       width: auto;
+      max-width: 100%;
     }
 
     &:hover

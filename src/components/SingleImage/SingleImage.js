@@ -34,11 +34,11 @@ class SingleImage extends React.Component {
 
             const photo = this.state.apiData;
             console.log(photo);
-            const {id, alt_description, urls, likes, links} = photo;
+            const {id, alt_description, urls, likes, links, color} = photo;
 
             content.push(
-                <figure className="unsplash__single-figure">
-                    <img src={urls.regular} alt={alt_description} key={id} data-id={id} className="unsplash__img"/>
+                <figure className="unsplash__single-figure"  key={id} style={{backgroundColor: color}}>
+                    <img src={urls.regular} alt={alt_description} data-id={id} className="unsplash__img"/>
                     <figcaption className="unsplash__single-description">
                         <span className='unsplash__single-likes'>{likes} likes</span>
                         <a className='unsplash__single-link' href={links.html} target="_blank" rel="nofollow noindex">See on
