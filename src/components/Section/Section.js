@@ -2,13 +2,11 @@ import React from 'react';
 import fetchSection from '../../api/fetchSection';
 import { Link, withRouter } from 'react-router-dom';
 
-import './style.css';
-
 const list_creator = data => ((Array.isArray(data) && data) || []).map(
-  ({ id, title, total_photos, cover_photo: { urls: { thumb: image  } = {} } = {} }, index) => (
-    <Link to={`/section/${id}`} key={`s-${index}-${id}`}>
+  ({ id, description, alt_description, urls: { thumb: image  } = {} }, index) => (
+    <Link to={`/photo/${id}`} key={`s-${index}-${id}`}>
       <div>
-        {image && <img src={image} alt="" />}
+        {image && <img src={image} alt={alt_description} />}
       </div>
     </Link>
   )
@@ -20,9 +18,8 @@ class Section extends React.Component {
   }
 
   componentDidMount() {
-    fetchSection(data => { console.dir(data[0]); return this.setState({ data }); }, {
-      id: this.
-    });
+    const { match: { params } } = this.props;
+    fetchSection(params, data => { console.dir(data[0]); return this.setState({ data }); });
   }
 
   render() {

@@ -20,7 +20,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    fetchSections(data => { console.dir(data[0]); return this.setState({ data }); });
+    fetchSections({}, data => this.setState({ data }));
   }
 
   render() {

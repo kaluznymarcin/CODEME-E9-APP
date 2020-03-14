@@ -6,15 +6,20 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
-import Sections from './Sections'
+import Sections from './Sections';
+import Section from './Section';
+import Photo from './Photo';
 
 function App() {
   return (
     <Router>
-
       <Switch>
-        <Route path="/photo/:id"><> Photo </></Route>
-        <Route path="/section/:id"><> Section </></Route>
+        <Route path="/photo/:id">
+          <Photo />
+        </Route>
+        <Route path="/section/:id">
+          <Section />
+        </Route>
         <Route path="/">
           <Sections />
         </Route>
