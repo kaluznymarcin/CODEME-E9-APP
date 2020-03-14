@@ -34,7 +34,7 @@ class Home extends Component {
                   <p>{collImage.description ? collImage.description : 'Descritpion is missing ...'}</p>
                 </div>
                 <div className="card-action">
-                  <Link to={'/' + collImage.id}>Open this collection ...</Link> {/* collImage.title.toLowerCase() + '_' + */}
+                  <Link to={'/collection/' + collImage.id}>Open this collection ...</Link> {/* collImage.title.toLowerCase() + '_' + */}
                 </div>
               </div>
             </div>

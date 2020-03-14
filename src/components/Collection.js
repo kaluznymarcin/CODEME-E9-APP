@@ -41,7 +41,7 @@ class Collection extends Component {
                                 <p>{collImage.description ? collImage.description : 'Descritpion is missing ...'}</p>
                             </div>
                             <div className="card-action">
-                                <Link to={'/' + collection_id + '/' + image_id}>Open this Image ...</Link>
+                                <Link to={'/image/' + image_id}>Open this Image ...</Link>
                             </div>
                         </div>
                     </div>

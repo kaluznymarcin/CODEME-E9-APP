@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import M from "materialize-css";
 
 const Image = props => {
-    console.log('Test Image Component')
+    console.log(props)
     return (
         <div>
             Test

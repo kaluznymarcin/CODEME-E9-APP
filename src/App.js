@@ -18,8 +18,8 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             {/* Route parameter: */}
-            <Route path='/:collection_id' component={Collection} />
-            <Route path='/:collection_id/:image_id' component={Image} />
+            <Route path='/collection/:collection_id' component={Collection} />
+            <Route path='/image/:image_id' component={Image} />
           </Switch>
         </div>
       </BrowserRouter>
