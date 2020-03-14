@@ -1,13 +1,12 @@
 import React from 'react';
 import fetchSection from '../../api/fetchSection';
 import { Link, withRouter } from 'react-router-dom';
+import Card from './Card';
 
 const list_creator = data => ((Array.isArray(data) && data) || []).map(
   ({ id, description, alt_description, urls: { thumb: image  } = {} }, index) => (
     <Link to={`/photo/${id}`} key={`s-${index}-${id}`}>
-      <div>
-        {image && <img src={image} alt={alt_description} />}
-      </div>
+      <Card image={image} />
     </Link>
   )
 );
@@ -23,7 +22,7 @@ class Section extends React.Component {
   }
 
   render() {
-    return <div className="sections">
+    return <div className="sections" style={{display: 'flex', flexWrap: 'wrap'}}>
       {list_creator(this.state.data)}
     </div>
   }

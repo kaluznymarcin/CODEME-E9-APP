@@ -2,6 +2,16 @@ import React from 'react';
 import fetchPhoto from '../../api/fetchPhoto';
 import { withRouter } from 'react-router-dom';
 
+import { Card, CardMedia, withStyles } from '@material-ui/core';
+
+const styles = (theme => ({
+  root: {
+    maxWidth: '98%',
+    width: '100%'
+  }
+}));
+
+
 
 class Photo extends React.Component {
   state = {
@@ -14,9 +24,9 @@ class Photo extends React.Component {
   }
 
   render() {
-    return <div className="photo">
-      {JSON.stringify(this.state.data)}
-    </div>
+    const classes = useStyles();
+
+    return <Card className={classes.root}>{JSON.stringify(this.state.data)}</Card>
   }
 }
 
