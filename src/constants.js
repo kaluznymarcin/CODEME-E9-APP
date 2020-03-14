@@ -5,3 +5,5 @@ export const UNSPLASH_AUTHORIZATION = `Client-ID ${UNSPLASH_ACCESS_KEY}`;
 export const UNSPLASH_COMMON_HEADERS = {
     Authorization: UNSPLASH_AUTHORIZATION
 };
+
+export const TOGGLE_SHELL = 'TOGGLE_SHELL';

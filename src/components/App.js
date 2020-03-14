@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
+import Drawer from './Drawer';
 import Header from './Header';
 
 import Sections from './Sections';
@@ -14,10 +15,10 @@ import Photo from './Photo';
 
 function App() {
   return (
-    <>
-    <Header />
-    <div style={{marginTop: '85px'}}>
-      <Router>
+    <Router>
+      <Drawer open={true} onClose={() => {}} />
+      <Header />
+      <div style={{marginTop: '85px'}}>
         <Switch>
           <Route path="/photo/:id">
             <Photo />
@@ -29,9 +30,8 @@ function App() {
             <Sections />
           </Route>
         </Switch>
-      </Router>
-    </div>
-    </>
+      </div>
+    </Router>
   );
 }
 
