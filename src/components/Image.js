@@ -16,6 +16,7 @@ class Image extends Component {
   componentDidMount() {
     const { image_id } = this.props.match.params;
     console.log('Image.js: ' + image_id)
+    console.log(this.props)
     this.props.getImage(image_id)
     // axios.get(`photos/${image_id}`).then(res => {
     //   this.setState({
