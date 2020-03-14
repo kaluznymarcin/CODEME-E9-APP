@@ -1,16 +1,15 @@
 import React from 'react';
 
 import {UNSPLASH_ACCESS_KEY} from '../../constants';
-import { withRouter } from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
 
-import './SingleImage.css';
+import './SingleImage.scss';
 
 class SingleImage extends React.Component {
     state = {
         pictureId: this.props.match.params.slug,
         apiData: null,
     };
-
 
 
     componentDidMount() {
@@ -21,45 +20,37 @@ class SingleImage extends React.Component {
             .then(res => res.json())
             .then(data => {
                 return this.setState({
-                    apiData: data})});
+                    apiData: data
+                })
+            });
     }
 
 
     getPhoto = () => {
 
-        let content  = [];
+        let content = [];
 
-        if(this.state.apiData) {
+        if (this.state.apiData) {
 
             const photo = this.state.apiData;
-            const {id, alt_description, urls, downloads, likes} = photo;
-            
+            console.log(photo);
+            const {id, alt_description, urls, likes, links, color} = photo;
 
-            content.push(<img src={urls.regular} alt={alt_description} data-id={id} className="unsplash__img"/>);
-            
-
-            return content 
-        }
-        else return null;
+            content.push(
+                <figure className="unsplash__single-figure"  key={id} style={{backgroundColor: color}}>
+                    <img src={urls.regular} alt={alt_description} data-id={id} className="unsplash__img"/>
+                    <figcaption className="unsplash__single-description">
+                        <span className='unsplash__single-likes'>{likes} likes</span>
+                        <a className='unsplash__single-link' href={links.html} target="_blank" rel="nofollow noindex">See on
+                            Unsplash</a>
+                    </figcaption>
+                </figure>);
+            return content;
+        } else return null;
     };
 
-    likes_downloads = () => {
-        let content = []
-
-        if(this.state.apiData){
-            
-            const like_download = this.state.apiData
-            const {likes, downloads} = like_download
-            
-            content.push(<span className="unsplash__Likes_Downloads">Likes: {likes} Downloads: {downloads}</span>)
-
-            return content
-        }
-
-    }
-
     render() {
-    return (<div className="unsplash__single">{ this.getPhoto() }{ this.likes_downloads() }</div>);
+        return (<div className="unsplash__single">{this.getPhoto()}</div>);
     }
 }
 

@@ -1,0 +1,77 @@
+.unsplash__single
+{
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+
+  &-figure
+  {
+    display: flex;
+    position: relative;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+
+    img
+    {
+      position: relative;
+      height: auto;
+      width: auto;
+      max-width: 100%;
+    }
+
+    &:hover
+    {
+      .unsplash__single-description
+      {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-likes
+  {
+    display: block;
+    width: 100%;
+  }
+
+  &-description
+  {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+    background-color: rgba(#000, .6);
+    flex-wrap: wrap;
+    opacity: 0;
+
+    transition: all .2s ease-in-out;
+
+    color: white;
+    text-align: center;
+
+    a
+    {
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px auto;
+    }
+  }
+
+}
