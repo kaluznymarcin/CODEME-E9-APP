@@ -25,6 +25,7 @@ class Collection extends Component {
 
     render () {
         const { collImages } = this.state;
+        console.log(collImages)
         const imageList = collImages.length ? (
           collImages.map(collImage => {
             return (
@@ -39,7 +40,7 @@ class Collection extends Component {
                                 <p>{collImage.description ? collImage.description : 'Descritpion is missing ...'}</p>
                             </div>
                             <div className="card-action">
-                                Open this image ...
+                                <Link to={'/' + collImage.id}>Open this collection ...</Link>
                             </div>
                         </div>
                     </div>
