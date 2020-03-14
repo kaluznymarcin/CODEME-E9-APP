@@ -6,7 +6,12 @@ import { Card, CardMedia, withStyles } from '@material-ui/core';
 
 const styles = (theme => ({
   root: {
+    display: 'flex',
     maxWidth: '98%',
+    width: '100%',
+    margin: 'auto'
+  },
+  image: {
     width: '100%'
   }
 }));
@@ -24,10 +29,19 @@ class Photo extends React.Component {
   }
 
   render() {
-    const classes = useStyles();
-
-    return <Card className={classes.root}>{JSON.stringify(this.state.data)}</Card>
+    const { classes } = this.props;
+    const { description, alt_description, urls : { full: image } = {}, likes, views, downloads } = (this.state.data || {});
+    return (
+      (image && <Card className={classes.root}>
+        <CardMedia
+          className={classes.media}
+          title={alt_description}
+        >
+          <img src={image} alt={alt_description} className={classes.image} />
+        </CardMedia>
+      </Card>) || null
+    )
   }
-}
+};
 
-export default withRouter(Photo);
+export default withRouter(withStyles(styles)(Photo));
