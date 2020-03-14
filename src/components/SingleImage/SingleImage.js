@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {UNSPLASH_ACCESS_KEY} from '../../constants';
-import { withRouter , Link} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
 
 import './SingleImage.scss';
 
@@ -12,7 +12,6 @@ class SingleImage extends React.Component {
     };
 
 
-
     componentDidMount() {
 
         const UNSPLASH_URL = `https://api.unsplash.com/photos/${this.state.pictureId}/?client_id=${UNSPLASH_ACCESS_KEY}`;
@@ -21,29 +20,37 @@ class SingleImage extends React.Component {
             .then(res => res.json())
             .then(data => {
                 return this.setState({
-                    apiData: data})});
+                    apiData: data
+                })
+            });
     }
 
 
     getPhoto = () => {
 
-        let content  = [];
+        let content = [];
 
-        if(this.state.apiData) {
+        if (this.state.apiData) {
 
             const photo = this.state.apiData;
             console.log(photo);
-            const {id, alt_description, urls, likes,links} = photo;
+            const {id, alt_description, urls, likes, links} = photo;
 
-            content.push(<div className="unsplash__single-wrapper"><img src={urls.regular} alt={alt_description} key={id} data-id={id} className="unsplash__img"/>
-            <span className='unsplash__likes' >{likes} likes</span><Link className='unsplash__link' to={links.self}>See on Unsplash</Link></div>);
+            content.push(
+                <figure className="unsplash__single-figure">
+                    <img src={urls.regular} alt={alt_description} key={id} data-id={id} className="unsplash__img"/>
+                    <figcaption className="unsplash__single-description">
+                        <span className='unsplash__single-likes'>{likes} likes</span>
+                        <a className='unsplash__single-link' href={links.html} target="_blank" rel="nofollow noindex">See on
+                            Unsplash</a>
+                    </figcaption>
+                </figure>);
             return content;
-        }
-        else return null;
+        } else return null;
     };
 
     render() {
-        return (<div className="unsplash__single">{ this.getPhoto() }</div>);
+        return (<div className="unsplash__single">{this.getPhoto()}</div>);
     }
 }
 
