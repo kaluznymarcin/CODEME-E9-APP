@@ -3,7 +3,7 @@ import React from 'react';
 import {UNSPLASH_ACCESS_KEY} from '../../constants';
 import { withRouter } from "react-router-dom";
 
-import './SingleImage.css';
+import './SingleImage.scss';
 
 class SingleImage extends React.Component {
     state = {
