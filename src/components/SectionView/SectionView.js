@@ -6,13 +6,22 @@ import { UNSPLASH_BASE_URL, UNSPLASH_ACCESS_KEY } from '../../constants';
 const linkKey = `&client_id=${UNSPLASH_ACCESS_KEY}`;
 //import Content from './Content';
 
-const SectionView = (data) => {
+function SectionContainer() {
+    let {id} = useParams();
+    console.log({id})
     return (
         <section className="hero">
-            <h1 className="section__title"></h1>
+            <h1 className="section__title">{id}</h1>
         </section>
-    )
+    );
 }
+
+const SectionView = (data) => (
+    <section className="hero">
+        <h1 className="section__title"></h1>
+    </section>
+)
+
 
 class ChoosenSection extends React.Component {
     state = {
@@ -28,10 +37,10 @@ class ChoosenSection extends React.Component {
     }
 
     render() {
-        
+        console.log(this.state.apiData)
         return (SectionView(this.state.apiData))
     }
 }
 
-export default withRouter(ChoosenSection);
+export default withRouter(SectionContainer, ChoosenSection);
 //<h1 className="section__title">{props}</h1>

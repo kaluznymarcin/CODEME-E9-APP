@@ -9,7 +9,7 @@ const linkKey = `&client_id=${UNSPLASH_ACCESS_KEY}`;
 const createList = (data) => ((Array.isArray(data) && data) || []).map(
     ({id, title, total_photos, cover_photo: {urls: {thumb: image}}}, index) => (
         
-        <Link key={id} to={`/SectionsView/${id}`}>
+        <Link key={id} to={`/SectionsView/${title}`}>
             <div className="section__box">
                 <h2 className="section__title">{title}</h2>
                 <img src={image} alt="" />
@@ -32,7 +32,6 @@ class Sections extends React.Component {
     }
 
     render() {
-        
         return (createList(this.state.apiData))
     }
 }
