@@ -7,8 +7,6 @@ import 'materialize-css/dist/js/materialize.min.js';
 import { Link } from 'react-router-dom'
 import M from "materialize-css";
 
-const collection_id = this.props.match.params.collection_id;
-
 class Collection extends Component {
 
     state = {
@@ -17,7 +15,7 @@ class Collection extends Component {
 
     componentDidMount(){
         let id = this.props.match.params.collection_id
-        axios.get(unsplashConsts.SINGLE_COLLECTION + collection_id + unsplashConsts.COLLECTION_ORDER_ACCESS)
+        axios.get(unsplashConsts.SINGLE_COLLECTION + id + unsplashConsts.COLLECTION_ORDER_ACCESS)
             .then(res => {
             this.setState({
                 collImages: res.data // could be: res.data.slice(0, 10)
@@ -27,6 +25,7 @@ class Collection extends Component {
 
     render () {
         const { collImages } = this.state;
+        const collection_id = this.props.match.params.collection_id;
         console.log(collection_id)
         const imageList = collImages.length ? (
           collImages.map(collImage => {
