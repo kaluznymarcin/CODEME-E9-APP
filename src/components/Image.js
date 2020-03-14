@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import M from "materialize-css";
 import { connect } from 'react-redux';
 import { getImage } from '../redux/actions/dataActions'
+import PropTypes from 'prop-types';
 
 class Image extends Component {
   state = {
@@ -40,9 +41,9 @@ class Image extends Component {
   }
 }
 
-// Image.propTypes = {
-//     user: PropTypes.object.isRequired
-//   };
+Image.propTypes = {
+    getImage: PropTypes.func.isRequired
+  };
 
 const mapStateToProps = state => ({
     user: state.user
