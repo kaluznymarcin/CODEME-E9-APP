@@ -8,6 +8,8 @@ import Image from './components/Image'
 import 'materialize-css/dist/css/materialize.min.css';
 import * as unsplashConsts from './constants'
 import axios from 'axios';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 axios.defaults.baseURL = unsplashConsts.UNSPLASH_BASE_URL
 axios.defaults.headers.common['Authorization'] = unsplashConsts.UNSPLASH_AUTHORIZATION;
@@ -16,7 +18,8 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
         <div className="App">
           <Navbar />
           <Switch>
@@ -28,6 +31,7 @@ class App extends Component {
           </Switch>
         </div>
       </BrowserRouter>
+      </Provider>
     )
   }
 }
