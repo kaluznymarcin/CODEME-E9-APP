@@ -5,6 +5,7 @@ import {
   Switch
 } from 'react-router-dom';
 import './App.css';
+import Header from './Header';
 import SectionsContainer from './SectionsContainer/Hero';
 import SectionView from './SectionView';
 
@@ -13,6 +14,7 @@ import SectionView from './SectionView';
 function App() {
   return (
     <Router>
+    <Header name='G2 Galleries'></Header>
       <Switch>
         <Route path="/SectionsView/:id">
           <SectionView />
