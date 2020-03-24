@@ -1,12 +1,51 @@
-.unsplash__Likes_Downloads{
-    color: black;
-    font-style: italic;
-    padding: 5px;
-    display: none;
-    position: absolute;
-    text-align: center;
+
+.unsplash__single{
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
 }
 
-.unsplash__img:hover ~ .unsplash__Likes_Downloads{
-    display: block;
+.unsplash__single > #share{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.75s linear;
+    box-sizing: content-box;
+    display: flex;
 }
+
+.unsplash__single:hover > #share{
+    visibility: visible;
+    filter:drop-shadow(8px 8px 10px black);
+}
+
+.unsplash__single > #share > span{
+    position: flex;
+    margin-right: 5px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.unsplash__single > .unsplash__img:hover ~ #share{
+    visibility: visible;
+    filter:drop-shadow(8px 8px 10px black);
+    opacity: 1;
+}
+
+.unsplash__single > #share:hover{
+    visibility: visible;
+    filter:drop-shadow(8px 8px 10px black);
+    opacity: 1;
+}
+
