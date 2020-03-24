@@ -2,6 +2,7 @@ import React from 'react';
 
 import {UNSPLASH_ACCESS_KEY} from '../../constants';
 import { withRouter } from "react-router-dom";
+import Iframe from 'react-iframe'
 
 import './SingleImage.css';
 
@@ -32,36 +33,33 @@ class SingleImage extends React.Component {
         if(this.state.apiData) {
 
             const photo = this.state.apiData;
-            const {id, alt_description, urls, downloads, likes} = photo;
+            const {id, alt_description, urls} = photo;
             
-
             content.push(<img src={urls.regular} alt={alt_description} data-id={id} className="unsplash__img"/>);
-            
 
             return content 
         }
         else return null;
     };
 
-    likes_downloads = () => {
+    Like_Photo = () => {
         let content = []
 
-        if(this.state.apiData){
-            
-            const like_download = this.state.apiData
-            const {likes, downloads} = like_download
-            
-            content.push(<span className="unsplash__Likes_Downloads">Likes: {likes} Downloads: {downloads}</span>)
+        if(this.state.apiData) {
+            const photo = this.state.apiData;
+            const {alt_description} = photo;
 
-            return content
+            content.push(
+                <div id="share"><span>{alt_description}</span>
+                <Iframe  src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=112&layout=button&action=like&size=large&share=true&height=65&appId" width="190" height="30" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></Iframe></div>
+                )
         }
-
+        return content
     }
 
     render() {
-    return (<div className="unsplash__single">{ this.getPhoto() }{ this.likes_downloads() }</div>);
+    return (<div className="unsplash__single">{ this.getPhoto() }{ this.Like_Photo() }</div>);
     }
 }
-
 
 export default withRouter(SingleImage);
