@@ -55,6 +55,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      display: none;
     }
 
 
@@ -63,6 +64,11 @@
       transform: scale(1.25) translate3d(0, 0, -999999px);
 
     }
+    
+    &:hover img ~ span {
+      display: flex;
+    }
+    
   }
 
 }
